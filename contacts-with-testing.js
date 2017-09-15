@@ -32,6 +32,8 @@ const addContact = function(firstName, lastName, email) {
     contactStorage.push(newContact);
   }
 }
+
+// Testing addContact with console.assert()
 console.assert(addContact("Kelcey", "Wilson", "kelceywilson@gmail.com") === undefined, 'contact not added');
 console.assert(typeof addContact === 'function', 'addContact is not a function');
 
@@ -58,7 +60,6 @@ console.assert(typeof addContact === 'function', 'addContact is not a function')
  *  Returns:
  *    undefined
  */
-
 const addContacts = function(contacts) {
   console.log("Loading contact data...");
   // addContacts function should catch errors thrown by addContact function, and continue processing the remaining contacts.
@@ -78,8 +79,11 @@ const addContacts = function(contacts) {
     }
   }
 }
+
+// Testing addContacts with console.assert()
 console.assert(addContacts({"first_name":"Kelcey", "last_name": "Wilson", "email": "kelceywilson@gmail.com"}) === undefined, 'contacts not added');
 console.assert(typeof addContacts === 'function', 'addContact is not a function');
+
 /*
  * printContacts
  *
@@ -119,9 +123,6 @@ const printContacts = function() {
   }
   console.log("|----------------------+--------------------------------|");
 }
-
-
-
 
 
 ////////////////////////////////////////////////////////////
@@ -232,9 +233,3 @@ addContacts([
 ])
 
 printContacts()
-
-
-// Test addContact and addContacts using console.assert
-// module.exports = addContact;
-// module.exports = addContacts;
-
