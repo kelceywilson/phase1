@@ -103,6 +103,9 @@ const printContacts = function() {
     // bds: what would happen here if the name was more than 20 characters long?
     let nameSpaces = 20 - sorted[i].first_name.length - sorted[i].last_name.length;
     let emailSpaces = 31 - sorted[i].email.length;
+
+    // bds: consider using template literals (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+    // bds: as they're easier to read than string interpolation
     console.log("| %s %s%s | %s%s |", sorted[i].first_name, sorted[i].last_name, Array(nameSpaces).join(" "), sorted[i].email, Array(emailSpaces).join(" "));
   }
   console.log("|----------------------+--------------------------------|");
@@ -110,7 +113,7 @@ const printContacts = function() {
 
 
 
-
+// bds: a linter will also clean up these blank lines
 
 
 
