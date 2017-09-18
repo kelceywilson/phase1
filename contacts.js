@@ -18,7 +18,7 @@ let contactStorage = [] // here is where you'll store your contacts
  */
 const addContact = function(firstName, lastName, email) {
   let newContact = {
-    // bds:
+    // bds: Do you have a linter? It's not standard JS to use double-quotes for strings
     "first_name": firstName,
     "last_name": lastName,
     "email": email
@@ -26,7 +26,6 @@ const addContact = function(firstName, lastName, email) {
   contactStorage.push(newContact);
 }
 // bds: This function is declared but never used. Bad form.
-// bds: Do you have a linter? It's not standard JS to use double-quotes for strings
 
 /*
  * addContacts
