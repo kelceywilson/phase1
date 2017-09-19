@@ -18,6 +18,9 @@ const addContact = function(firstName, lastName, email) {
 // check if the firstName, lastName & email addresses are strings
   if (typeof firstName !== "string" || typeof lastName !== "string" || typeof email !== "string"){
     // if either of those arguments are NOT strings, the function should throw an error
+    // bds: this does not meet the spec. The spec says that the function should
+    // bds: throw an error if the arguments are not strings.
+    // bds: see this module for more background: https://curriculum.learnersguild.org/modules/Error-Handling/
     return {
         "first": firstName,
         "last": lastName,
@@ -66,6 +69,8 @@ const addContacts = function(contacts) {
   let contactErrors = [];
   for (i = 0; i < contacts.length; i++){
     let addReturn = addContact(contacts[i].first_name, contacts[i].last_name, contacts[i].email);
+    // bds: the error thrown from addContact should be handled here, rather than
+    // bds: using a conditional
     if (addReturn !== undefined){
       contactErrors.push(addReturn);
     }
@@ -74,6 +79,8 @@ const addContacts = function(contacts) {
   // The function should maintain the list of contacts that failed to be loaded, and should print a warning to the console about the failed imports
   if (contactErrors.length > 0){
     console.log(`Could not import ${contactErrors.length} contacts.`);
+    // bds: as with the previous version, .forEach and template literals are more
+    // bds: idiomatic JavaScript
     for (i = 0; i < contactErrors.length; i++){
       console.log("First: %s, Last: %s, Email: %s", contactErrors[i].first, contactErrors[i].last, contactErrors[i].email);
     }
@@ -81,6 +88,10 @@ const addContacts = function(contacts) {
 }
 
 // Testing addContacts with console.assert()
+// bds: you will want to test using error throwing here.
+// bds: for addContact, try to testing the "good" input case as well!
+// bds: for addContacts, can you devise some tests to see whether the function
+// bds: works properly, and not just whether or not it's a function?
 console.assert(addContacts({"first_name":"Kelcey", "last_name": "Wilson", "email": "kelceywilson@gmail.com"}) === undefined, 'contacts not added');
 console.assert(typeof addContacts === 'function', 'addContact is not a function');
 

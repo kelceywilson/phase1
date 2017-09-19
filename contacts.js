@@ -1,5 +1,7 @@
 let contactStorage = [] // here is where you'll store your contacts
 
+// bds: Nice function documentation! Consider using JSDoc (http://usejsdoc.org/)
+// bds: for a standard JS function documentation format
 /*
  * addContact
  *
@@ -16,12 +18,14 @@ let contactStorage = [] // here is where you'll store your contacts
  */
 const addContact = function(firstName, lastName, email) {
   let newContact = {
+    // bds: Do you have a linter? It's not standard JS to use double-quotes for strings
     "first_name": firstName,
     "last_name": lastName,
     "email": email
   }
   contactStorage.push(newContact);
 }
+// bds: This function is declared but never used. Bad form.
 
 /*
  * addContacts
@@ -48,6 +52,9 @@ const addContact = function(firstName, lastName, email) {
  */
 const addContacts = function(contacts) {
   console.log("Loading contact data...");
+  // bds: the following simply recreates the array
+  // bds: it would be simpler to say contactStorage = contacts
+  // bds: but how could you use .map() and addContact() ?
   for (i = 0; i < contacts.length; i++){
     contactStorage.push(contacts[i]);
   }
@@ -70,6 +77,8 @@ const addContacts = function(contacts) {
  */
 const printContacts = function() {
   // sort contacts in ascending order using array#sort
+
+// bds: again, linter: better to use arrow notation here
   let sorted = contactStorage.sort(function(a, b){
     if (a.first_name < b.first_name){
       return -1;
@@ -85,10 +94,17 @@ const printContacts = function() {
   console.log("| Full Name            | Email Address                  |");
   console.log("|----------------------+--------------------------------|");
   // loop through contacts and log each none
+
+  // bds: try using .forEach() instead of for
   for (i = 0; i < sorted.length; i++){
     //calculate how many spaces to put after each full name and email address
+
+    // bds: what would happen here if the name was more than 20 characters long?
     let nameSpaces = 20 - sorted[i].first_name.length - sorted[i].last_name.length;
     let emailSpaces = 31 - sorted[i].email.length;
+
+    // bds: consider using template literals (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+    // bds: as they're easier to read than string interpolation
     console.log("| %s %s%s | %s%s |", sorted[i].first_name, sorted[i].last_name, Array(nameSpaces).join(" "), sorted[i].email, Array(emailSpaces).join(" "));
   }
   console.log("|----------------------+--------------------------------|");
@@ -96,7 +112,7 @@ const printContacts = function() {
 
 
 
-
+// bds: a linter will also clean up these blank lines
 
 
 
