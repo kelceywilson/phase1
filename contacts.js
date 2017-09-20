@@ -49,6 +49,7 @@ const addContact = (firstName, lastName, email) => {
 const addContacts = (contacts) => {
   console.log('Loading contact data...');
   contacts.forEach((contact) => {
+    // console.log(typeof contact.first_name, typeof contact.last_name, typeof contact.email);
     addContact(contact.first_name, contact.last_name, contact.email);
   });
   console.log('...Finished loading contact data.');
@@ -96,7 +97,6 @@ const printContacts = () => {
   });
 
   // log header
-  console.log(namesLength, emailsLength);
   const header = `|-${'-'.repeat(namesLength)}-+-${'-'.repeat(emailsLength)}-|`;
   console.log('All Contacts:');
   console.log(header);
